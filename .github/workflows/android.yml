@@ -1,6 +1,5 @@
 name: Build SHADOWHAT APK
-
-on:
+'on':
 workflow_dispatch:
 push:
 paths:
@@ -37,7 +36,7 @@ uses: actions/checkout@v4
       unzip -o "$ZIP_FILE" -d extracted
       PROJECT_FILE=$(find extracted -type f \( -name settings.gradle.kts -o -name settings.gradle \) -print -quit)
       if [ -z "$PROJECT_FILE" ]; then
-        echo "ERROR: No se encontró settings.gradle.kts ni settings.gradle."
+        echo "ERROR: No se encontró el archivo settings.gradle."
         exit 1
       fi
       PROJECT_DIR=$(dirname "$PROJECT_FILE")
